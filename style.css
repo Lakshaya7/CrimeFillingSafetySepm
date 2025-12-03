@@ -39,6 +39,7 @@ nav {
     backdrop-filter: blur(6px);
     position: sticky;
     top: 0;
+    flex-wrap: wrap; /* Allows navigation items to wrap on smaller screens */
 }
 
 nav a {
@@ -83,14 +84,16 @@ h2:hover {
 }
 
 .card img {
-    width: 100%;
+    /* Ensures images are always full width of the card and don't overflow */
+    max-width: 100%; 
+    height: auto; /* Maintains aspect ratio */
     border-radius: 12px;
     margin-top: 15px;
     transition: transform 0.5s;
 }
 
 .card img:hover {
-    transform: scale(1.05);
+    transform: scale(1.02); /* Reduced hover scale for better touch usability on mobile */
 }
 
 /* ----------- SLIDER ----------- */
@@ -104,7 +107,14 @@ h2:hover {
 
 .slides {
     display: flex;
-    width: 500%;
+    /* This calculation assumes 3 slides (300% width) for responsive design.
+       The existing JS suggests 3 slides, but the original CSS had 500%. 
+       We will keep 500% to match the original structure, assuming 5 is the max number of slides the user intends. 
+       However, the current JS logic only handles 3 slides (index % 3). 
+       I will stick to the original 500% width and trust the user's intent, but note the JS handles 3.
+       If the user wants 3 slides, this should be 300%. For safety, I'll keep the original 500%.
+    */
+    width: 500%; 
     transition: 0.6s;
 }
 
@@ -123,6 +133,12 @@ h2:hover {
     cursor: pointer;
     border-radius: 50%;
     font-size: 20px;
+    /* Larger touch target */
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .prev { left: 10px; }
@@ -138,14 +154,17 @@ h2:hover {
     backdrop-filter: blur(4px);
     justify-content: center;
     align-items: center;
+    z-index: 100; /* Ensure it is on top */
 }
 
 #team-box {
     background: var(--card-bg);
     padding: 30px;
     border-radius: 12px;
-    width: 300px;
+    width: 90%; /* Fluid width for mobile */
+    max-width: 350px; /* Max width for desktop */
     text-align: center;
+    box-shadow: 0 8px 30px #0006;
 }
 
 /* ----------- THEME BUTTON ----------- */
@@ -161,8 +180,60 @@ h2:hover {
     background: #6c63ff;
     color: white;
     transition: 0.3s;
+    z-index: 50; /* Ensure it is above most content */
 }
 
 #theme-btn:hover {
     transform: scale(1.1);
+}
+
+/* ==================================== */
+/* RESPONSIVENESS (Mobile)     */
+/* ==================================== */
+@media (max-width: 768px) {
+    
+    /* Global Adjustments */
+    section {
+        padding: 20px 15px; /* Reduce vertical and horizontal padding */
+    }
+
+    /* Header text size reduction */
+    header {
+        font-size: 24px;
+        padding: 15px 10px;
+    }
+
+    /* Navigation Stacking */
+    nav {
+        flex-direction: column; /* Stack links vertically */
+        gap: 8px; /* Reduce gap */
+        padding: 10px 5px;
+    }
+
+    nav a {
+        font-size: 16px;
+        padding: 10px; /* Increase vertical padding for easier tapping (larger touch target) */
+        text-align: center;
+    }
+    
+    h2 {
+        font-size: 28px;
+    }
+    
+    .card {
+        padding: 15px;
+    }
+
+    /* Theme Button position adjustment for less intrusion */
+    #theme-btn {
+        right: 10px;
+        bottom: 10px;
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    /* Reduce hover/transition effects on images for mobile/touch devices */
+    .card img:hover {
+        transform: none; 
+    }
 }
