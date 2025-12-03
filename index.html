@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crime Reporting & Management System</title>
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>Crime Reporting & Management System</header>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#usecase">Use Case</a>
+        <a href="#class">Class Diagram</a>
+        <a href="#activity">Activity Diagrams</a>
+        <a href="#team" onclick="openTeam()">Team</a>
+    </nav>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <h2>About the Project</h2>
+        <div class="card">
+            <p>
+                The Crime Reporting and Safety Management System (CRSMS) is a digital platform designed to simplify the 
+                reporting and investigation of criminal activities. It allows citizens to submit complaints online, track 
+                case progress, and access emergency services. Law enforcement agencies gain an integrated dashboard for 
+                case assignment, evidence tracking, communication, and report generation.
+            </p>
+            <p>
+                The system reduces paperwork, increases transparency, accelerates investigations, and provides a safer 
+                environment through data-driven policing. It plays a crucial role in enhancing accountability and 
+                improving the cooperation between citizens and law enforcement.
+            </p>
+        </div>
+    </section>
+
+    <!-- USE CASE -->
+    <section id="usecase">
+        <h2>Use Case Diagram</h2>
+        <div class="card">
+            <img src="IMG-20251118-WA0012.jpg" alt="Use case diagram">
+        </div>
+    </section>
+
+    <!-- CLASS -->
+    <section id="class">
+        <h2>Class Diagram</h2>
+        <div class="card">
+            <img src="WhatsApp Image 2025-11-18 at 15.21.53_03f21a62.jpg" alt="Class diagram">
+        </div>
+    </section>
+
+    <!-- ACTIVITY SLIDER -->
+    <section id="activity">
+        <h2>Activity Diagrams</h2>
+        <div class="card">
+
+            <div class="slider">
+                <div class="slides" id="slide-box">
+                    <img src="IMG-20251118-WA0015.jpg">
+                    <img src="IMG-20251118-WA0016.jpg">
+                    <img src="IMG-20251118-WA0017.jpgg">
+                </div>
+
+                <button class="slider-btn prev" onclick="prevSlide()">❮</button>
+                <button class="slider-btn next" onclick="nextSlide()">❯</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- TEAM POPUP -->
+    <div id="team-modal">
+        <div id="team-box">
+            <h3>Team Members</h3>
+            <p>• Lakshaya</p>
+            <p>• Member 2</p>
+            <p>• Member 3</p>
+            <button onclick="closeTeam()">Close</button>
+        </div>
+    </div>
+
+    <!-- THEME BUTTON -->
+    <button id="theme-btn">Toggle Theme</button>
+
+    <!-- JS -->
+    <script src="script.js"></script>
+
+</body>
+</html>
